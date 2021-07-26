@@ -1,4 +1,3 @@
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +12,7 @@
     <h3 align="center">Dynamically Add/Remove input fields </h3>
     <br />
     <div class="table-responsive">
-        <form method="post" enctype="multipart/formdata">
+        <form method="post" enctype="multipart/formdata" id="dynamic_form">
             {{ csrf_field() }}
             <span id="result"></span>
             <table class="table table-bordered table-striped" id="user_table">
@@ -52,17 +51,13 @@
 
 <script>
     $(document).ready(function(){
-
         var count = 1;
-
         dynamic_field(count);
-
         function dynamic_field(number)
         {
-
             html = '<tr>';
             html += '<td><input type="text" name="name[]" class="form-control" /></td>';
-            html += '<td><select><option value="Select">NONE</option><option title="A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned range is 0 to 4,294,967,295">INT</option>' +
+            html += '<td><select  name="type[]" ><option value="Select">NONE</option><option title="A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned range is 0 to 4,294,967,295">INT</option>' +
                 '<option title="A variable-length (0-65,535) string, the effective maximum length is subject to the maximum row size">VARCHAR</option>' +
                 '<option title="A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored with a two-byte prefix indicating the length of the value in bytes">TEXT</option>' +
                 '<option title="A date, supported range is 1000-01-01 to 9999-12-31">DATE</option>' +
@@ -82,19 +77,18 @@
                 '<option title="A time, range is -838:59:59 to 838:59:59">TIME</option>' +
                 '<option title="A year in four-digit (4, default) or two-digit (2) format, the allowable values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000">YEAR</option></optgroup>' +
                 '</select></td>';
-
             html += '<td><input type="text" name="length[]" class="form-control" /></td>';
-            html += '<td><input type="checkbox" name="not_null[]" class="allow_null" /></td>';
-            html += '<td><input type="checkbox" name="unsigned[]" class="allow_null" /></td>';
-            html += '<td><input type="checkbox" name="auto_increment[]" class="allow_null" /></td>';
-            html += '<td><select><option value="Select">NONE</option>' +
+            html += '<td><input type="checkbox" name="not_null[]"  /></td>';
+            html += '<td><input type="checkbox" name="unsigned[]" /></td>';
+            html += '<td><input type="checkbox" name="auto_increment[]"  /></td>';
+            html += '<td><select name="index[]"><option value="Select">NONE</option>' +
                 '<option value="primary_0" title="Primary">PRIMARY </option> ' +
                 '<option value="unique_0" title="Unique">UNIQUE </option>' +
                 '<option value="index_0" title="Index">INDEX </option>' +
                 '<option value="fulltext_0" title="Fulltext">FULLTEXT </option>' +
                 '<option value="spatial_0" title="Spatial">SPATIAL </option>' +
                 '</select></td>';
-            html += '<td><select><option value="Select">NONE</option>' +
+            html += '<td><select name="default[]"><option value="Select">NONE</option>' +
                 ' <option value="USER_DEFINED">As defined:  </option>' +
                 '<option value="NULL"> NULL </option>' +
                 '<option value="CURRENT_TIMESTAMP">CURRENT_TIMESTAMP</option>' +
@@ -110,17 +104,14 @@
                 $('tbody').html(html);
             }
         }
-
         $(document).on('click', '#add', function(){
             count++;
             dynamic_field(count);
         });
-
         $(document).on('click', '.remove', function(){
             count--;
             $(this).closest("tr").remove();
         });
-
         $('#dynamic_form').on('submit', function(event){
             event.preventDefault();
             $.ajax({
@@ -151,6 +142,5 @@
                 }
             })
         });
-
     });
 </script>

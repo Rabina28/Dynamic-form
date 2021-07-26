@@ -22,11 +22,11 @@ class DynamicFieldController extends Controller
                 'name.*' => 'required',
                 'type.*' => 'required',
                 'length.*' => 'required',
-                'not_null.*' => 'required',
-                'unsigned.*' => 'required',
-                'auto_increment.*' => 'required',
-                'index.*' => 'required',
-                'default.*' => 'required'
+                'not_null.*' => 'nullable',
+                'unsigned.*' => 'nullable',
+                'auto_increment.*' => 'nullable',
+                'index.*' => 'nullable',
+                'default.*' => 'nullable'
             );
             $error = Validator::make($request->all(), $rules);
             if ($error->fails())
@@ -37,11 +37,11 @@ class DynamicFieldController extends Controller
             }
             $name = $request->name;
             $type= $request->type ;
-             $length = $request->length ;
+            $length = $request->length ;
             $not_null = $request->not_null ;
-             $unsigned = $request->unsigned ;
+            $unsigned = $request->unsigned ;
             $auto_increment = $request->auto_increment;
-             $index = $request->index ;
+            $index = $request->index ;
             $default = $request->default;
             for ($count = 0; $count < count($name); $count++) {
                 $data = array(
