@@ -33,15 +33,15 @@ class DynamicFieldController extends Controller
             {
                 return response()->json([
                     'error' => $error->errors()->all()
-                ]);
-            }
-            $name = $request->name;
-            $type= $request->type ;
-            $length = $request->length ;
-            $not_null = $request->not_null ;
-            $unsigned = $request->unsigned ;
-            $auto_increment = $request->auto_increment;
-            $index = $request->index ;
+            ]);
+        }
+        $name = $request->name;
+        $type= $request->type ;
+        $length = $request->length ;
+        $not_null = $request->not_null ;
+        $unsigned = $request->unsigned ;
+        $auto_increment = $request->auto_increment;
+        $index = $request->index ;
             $default = $request->default;
             for ($count = 0; $count < count($name); $count++) {
                 $data = array(
