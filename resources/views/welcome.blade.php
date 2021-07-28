@@ -128,9 +128,15 @@
                 method:'post',
                 data:$(this).serialize(),
                 dataType:'json',
+<<<<<<< HEAD
                 beforeSend:function(){
                    $('#save').attr('disabled','disabled');
                },
+=======
+                // beforeSend:function(){
+                //     $('#save').attr('disabled','disabled');
+                // },
+>>>>>>> ed2d735d49a57388c69c12d86d921a3bc6198691
                 success:function(data)
                 {
                     if(data.error)
