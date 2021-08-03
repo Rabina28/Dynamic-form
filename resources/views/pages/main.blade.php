@@ -9,14 +9,14 @@
                     <li class="breadcrumb-item active">Home</li>
                 </ol>
 
-                <form  method="POST" enctype="multipart/form-data">
+                <form  action="{{route('pages.main.update', $main->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{ method_field('PUT')}}
                     <div class="row">
                         <div class="form-group col-md-5 mt-3">
                             <h3>Background Image</h3>
-                            <img style="height: 30vh" src="{{(@$main->bg_img)?url($main->bg_img):asset("assets/img/bg-masthead.jpg")}}" class="img-thumbnail">
-                            <input class="mt-4" type="file" id="bg_img" name="bg_img">
+                            <img style="height: 30vh" src="{{url($main->bc_img)}}" class="img-thumbnail">
+                            <input class="mt-4" type="file" id="bc_img" name="bc_img">
                         </div>
                         <div class="form-group col-md-4 mt-3">
                             <div class="mb-3">

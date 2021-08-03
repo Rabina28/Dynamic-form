@@ -35,12 +35,11 @@
         </nav>
         <!-- Masthead-->
 
-        <header class="masthead style="background-image:url(<?php echo $main->bc_img ?>)>
+        <header class="masthead" style="background-image: url(<?php echo $main->bc_img ?>)">
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
                         <h3 class="text-white font-weight-bold">{{$main->title}}</h3>
-
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
@@ -84,27 +83,27 @@
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
                     <div class="col-lg-6">
-                        <form id="contactForm" action="" method="POST">
+                        <form id="contactForm" action="" method="GET">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." required="required" />
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." required autocomplete="name" autofocus />
                                 <label for="name">Full name</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" required="required" />
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" required autocomplete="email" autofocus />
                                 <label for="email">Email address</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required="required" />
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required autocomplete="phone" autofocus />
                                 <label for="phone">Phone number</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" required="required"></textarea>
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" required autocomplete="message" autofocus></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>

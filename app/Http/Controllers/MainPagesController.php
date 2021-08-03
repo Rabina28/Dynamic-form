@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Main;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class MainPagesController extends Controller
 {
@@ -43,11 +43,7 @@ class MainPagesController extends Controller
             $main->bc_img = 'storage/img/bc_img.' . $img_file->getClientOriginalExtension();
         }
 
-        if($request->file('resume')){
-            $pdf_file = $request->file('resume');
-            $pdf_file->storeAs('public/pdf/','resume.' . $pdf_file->getClientOriginalExtension());
-            $main->resume = 'storage/pdf/resume.' . $pdf_file->getClientOriginalExtension();
-        }
+
         $main->save();
 
         return redirect()->route('admin.main')->with('success', "Main Page data has been updated successfully");

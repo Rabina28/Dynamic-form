@@ -95,8 +95,8 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                         Home
                     </a>
-                    <a class="nav-link" href="{{route('admin.about')}}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+                    <a class="nav-link" href="{{route('pages.about')}}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                         About
                     </a>
 

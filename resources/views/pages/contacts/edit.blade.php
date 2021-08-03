@@ -30,7 +30,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" value="{{ $contacts->phone }}" class="form-control" placeholder="Phone" name="phone" id="phone">
+                                <input type="tel" value="{{ $contacts->phone }}" class="form-control" placeholder="Phone" name="phone" id="phone">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -42,8 +42,10 @@
 
                         <div class="col-md-10">
                             <div class="form-group">
-                                <label for="address">message</label>
-                                <input type="text" value="{{ $contacts->message }}" class="form-control" placeholder="Messsage" name="message" id="message">
+                                <label for="address">Message</label>
+
+                                <input type="text" value="{{ $contacts->message }}" class="form-control" placeholder="Messsage" name="message" id="message" style="height: 10rem">
+
                             </div>
                         </div>
                     </div>

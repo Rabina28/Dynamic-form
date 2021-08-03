@@ -58,7 +58,7 @@ class ContactPagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show( $id)
+    public function show($id)
     {
         $contacts = Contact::find($id);
         return view('pages.contacts.read',compact('contacts'));
@@ -91,7 +91,7 @@ class ContactPagesController extends Controller
             'email'=>'required',
             'message'=>'required',
         ]);
-        $contacts = new Contact();
+        $contacts =Contact::find($id);
         $contacts->name=$request->name;
         $contacts->phone=$request->phone;
         $contacts->email=$request->email;
