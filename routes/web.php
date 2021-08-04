@@ -18,9 +18,9 @@ use App\Http\Controllers\AboutPageController;
 |
 */
 
-Route::get('/', function () {
-  return view('portfolio');
-});
+//Route::get('/', function () {
+ // return view('portfolio');
+//});
 
 //frontend routes
 Route::get('/index', 'PagesController@index')->name('home');
@@ -42,8 +42,15 @@ Route::put('/admin/contacts/update/{id}', 'ContactPagesController@update')->name
 Route::delete('/admin/contacts/destroy/{id}', 'ContactPagesController@destroy')->name('pages.contacts.destroy');
 
 //About page routes of admin
-Route::get('/admin/about', 'AboutPageController@index')->name('pages.about');
-Route::put('/admin/about', 'AboutPageController@update')->name('pages.about.update');
+//Route::get('/admin/about', 'AboutPageController@index')->name('pages.about');
+//Route::put('/admin/about', 'AboutPageController@update')->name('pages.about.update');
+Route::get('/admin/abouts/index', 'AboutPagesController@index')->name('pages.abouts.index');
+Route::get('/admin/abouts/create', 'AboutPagesController@create')->name('pages.abouts.create');
+Route::put('/admin/abouts/create', 'AboutPagesController@store')->name('pages.abouts.store');
+Route::get('/admin/abouts/show/{id}', 'AboutPagesController@show')->name('pages.abouts.read');
+Route::get('/admin/abouts/edit/{id}', 'AboutPagesController@edit')->name('pages.abouts.edit');
+Route::put('/admin/abouts/update/{id}', 'AboutPagesController@update')->name('pages.abouts.update');
+Route::delete('/admin/abouts/destroy/{id}', 'AboutPagesController@destroy')->name('pages.abouts.destroy');
 
 
 Route::get('dynamic-field', 'DynamicFieldController@index');

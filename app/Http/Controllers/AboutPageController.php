@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class AboutPageController extends Controller
 {
@@ -20,7 +22,7 @@ class AboutPageController extends Controller
             'description' => 'required|string',
         ]);
 
-        $about = About::first();
+        $about= About::first();
         $about->title = $request->title;
         $about->description = $request->description;
 

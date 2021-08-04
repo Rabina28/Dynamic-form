@@ -42,10 +42,7 @@ class MainPagesController extends Controller
             $img_file->storeAs('public/img/','bc_img.' . $img_file->getClientOriginalExtension());
             $main->bc_img = 'storage/img/bc_img.' . $img_file->getClientOriginalExtension();
         }
-
-
         $main->save();
-
         return redirect()->route('admin.main')->with('success', "Main Page data has been updated successfully");
 
     }

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Main;
+use App\Models\About;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -10,7 +11,9 @@ class PagesController extends Controller
     public function index()
     {
         $main = Main::first();
-        return view('pages.index', compact('main'));
+        $abouts = About::all();
+        $contacts = Contact::all();
+        return view('pages.index', compact('main', 'abouts','contacts'));
     }
 
     public function dashboard()

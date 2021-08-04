@@ -35,7 +35,7 @@
         </nav>
         <!-- Masthead-->
 
-        <header class="masthead" style="background-image: url(<?php echo $main->bc_img ?>)">
+        <header class="masthead" id="home" style="background-image: url(<?php echo $main->bc_img ?>)">
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
@@ -56,17 +56,20 @@
                         <h2 class="section-heading text-uppercase">About Me</h2>
                     </div>
                     <ul class="timeline">
-                        <li>
-                            <p class="timeline-image" style="float: left;">
-                                <img class="rounded-circle img-fluid" src="assets/img/1.jpg" alt="..." width="200" height="1" /></p>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Hello,</h4>
-                                </div>
-                                <div class="timeline-body"><p class="text-muted">I am Raveena Sanjel, Back-End Software Developer (specialized in laravel),
-                                        I have acquired the skills and knowledge necessary to make your project a success.</p> </div>
-                            </div>
-                        </li>
+                    @if(count($abouts)>0)
+                    @foreach($abouts as $about)
+                                <li>
+                                    <p class="timeline-image" style="float: left;">
+                                        <img class="rounded-circle img-fluid" src="{{url($about->image)}}" alt="..." width="200" height="1" /></p>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>{{$about->title}}</h4>
+                                        </div>
+                                        <div class="timeline-body"><p class="text-muted">{{$about->description}}</p> </div>
+                                    </div>
+                                </li>
+                        @endforeach
+                        @endif
                     </ul>
                 </div>
         </section>

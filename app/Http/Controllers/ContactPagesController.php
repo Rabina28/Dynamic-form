@@ -72,8 +72,8 @@ class ContactPagesController extends Controller
      */
     public function edit($id)
     {
-        $contacts = Contact::find($id);
-        return view('pages.contacts.edit',compact('contacts'));
+        $contact = Contact::find($id);
+        return view('pages.contacts.edit',compact('contact'));
     }
 
     /**
