@@ -17,26 +17,26 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('pages.contacts.update',$contact->id)}}" method="POST">
+                <form action="{{ route('pages.contacts.update',$index->id)}}" method="POST">
                     {{ @csrf_field() }}
                     {{ method_field('PUT') }}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="roll"> Name <span class="required">*</span></label>
-                                <input type="text"  value="{{ $contact->name }}" class="form-control" placeholder=" Name" name="name" id="name">
+                                <input type="text"  value="{{ $index->name }}" class="form-control" placeholder=" Name" name="name" id="name">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="tel" value="{{ $contact->phone }}" class="form-control" placeholder="Phone" name="phone" id="phone">
+                                <input type="tel" value="{{ $index->phone }}" class="form-control" placeholder="Phone" name="phone" id="phone">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" value="{{ $contact->email }}" class="form-control" placeholder="Email" name="email" id="email">
+                                <input type="email" value="{{ $index->email }}" class="form-control" placeholder="Email" name="email" id="email">
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label for="address">Message</label>
 
-                                <input type="text" value="{{ $contact->message }}" class="form-control" placeholder="Messsage" name="message" id="message" style="height: 10rem">
+                                <textarea type="text" class="form-control" placeholder="Messsage" name="message" id="message" style="height: 10rem">{{ $index->message }}</textarea>
 
                             </div>
                         </div>

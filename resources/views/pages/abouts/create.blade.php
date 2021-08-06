@@ -39,8 +39,10 @@
                         </div>
                     </div>
                     <input type="submit" name="submit" class="btn btn-primary my-5">
+                    <a href="{{ route('pages.abouts.index') }}" class="btn btn-danger">Back</a>
 
-            </form>
+
+                </form>
                 <div style="height: 100vh"></div>
             </div>
         </main>

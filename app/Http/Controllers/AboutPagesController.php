@@ -86,14 +86,14 @@ class AboutPagesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'title' => 'required|string',
             'description' => 'required|string',
         ]);
 
-        $abouts= About::find();
+        $abouts= About::find($id);
         $abouts->title = $request->title;
         $abouts->description = $request->description;
 

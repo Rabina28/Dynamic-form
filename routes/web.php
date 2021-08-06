@@ -19,12 +19,18 @@ use App\Http\Controllers\AboutPageController;
 */
 
 //Route::get('/', function () {
- // return view('portfolio');
+  //return view('portfolio');
 //});
 
 //frontend routes
-Route::get('/index', 'PagesController@index')->name('home');
 
+Route::get('/', 'PagesController@index')->name('home');
+
+Route::get('/index', 'IndexController@index')->name('pages.index');
+Route::post('/index', 'IndexController@store')->name('pages.index.store');
+
+//middleware route
+Route::group(['middleware' =>['auth']], function(){
 //dashboard route
 Route::get('/admin/dashboard', 'PagesController@dashboard')->name('admin.dashboard');
 
@@ -51,7 +57,7 @@ Route::get('/admin/abouts/show/{id}', 'AboutPagesController@show')->name('pages.
 Route::get('/admin/abouts/edit/{id}', 'AboutPagesController@edit')->name('pages.abouts.edit');
 Route::put('/admin/abouts/update/{id}', 'AboutPagesController@update')->name('pages.abouts.update');
 Route::delete('/admin/abouts/destroy/{id}', 'AboutPagesController@destroy')->name('pages.abouts.destroy');
-
+});
 
 Route::get('dynamic-field', 'DynamicFieldController@index');
 Route::post('dynamic-field/insert', 'DynamicFieldController@insert')->name('dynamic-field.insert');
@@ -62,5 +68,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
+
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

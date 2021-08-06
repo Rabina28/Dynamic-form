@@ -15,34 +15,33 @@
                     @endif
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <a href="{{ route('pages.contacts.create') }}" data-toggle="modal" data-target="#addModal" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i> Add New</a>
                         </div>
                         <div class="panel-body">
                             <table class="table table-hover table-bordered table-stripped">
                                 <thead>
                                 <tr>
                                     <th>S.N</th>
-                                    <th>Name</th>>
+                                    <th>Name</th>
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Message</th>
                                     <th style="width:200px;">Action</th>
                                 </tr>
                                 </thead>
-                                @foreach ($contacts as $contact)
+                                @foreach ($indices as $index)
                                     <tr>
                                         <td>{{ $loop->index+1 }}</td>
-                                        <td>{{ $contact->name }}</td>
-                                        <td>{{ $contact->phone }}</td>
-                                        <td>{{ $contact->email }}</td>
-                                        <td>{{ $contact->message }}</td>
+                                        <td>{{ $index->name }}</td>
+                                        <td>{{ $index->phone }}</td>
+                                        <td>{{ $index->email }}</td>
+                                        <td>{{ $index->message }}</td>
                                         <td>
-                                            <form  method="post" action="{{ route('pages.contacts.destroy',$contact->id) }}" class="delete_form">
+                                            <form  method="post" action="{{ route('pages.contacts.destroy',$index->id) }}" class="delete_form">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
-                                                <a href="{{ route('pages.contacts.edit',$contact->id) }}" class="btn btn-xs btn-primary">Edit</a>
+                                                <a href="/admin/contacts/edit/{{$index->id}}" class="btn btn-xs btn-primary">Edit</a>
 
-                                                <a href="{{ route('pages.contacts.read',$contact->id) }}" class="btn btn-xs btn-success">View</a>
+                                                <a href="{{ route('pages.contacts.read',$index->id) }}" class="btn btn-xs btn-success">View</a>
 
                                                 <button class="btn btn-xs btn-danger" type="submit" onclick="return confirm('Are You Sure? Want to Delete It.');">Delete</button>
                                             </form>
@@ -50,9 +49,7 @@
                                     </tr>
                                     @endforeach
                             </table>
-                            <p class="pull-right">
-                                {{ $contacts->links() }}
-                            </p>
+
                         </div>
                         </div>
                     </div>

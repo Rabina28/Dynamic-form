@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class About extends Model
+class Index extends Model
 {
     use HasFactory;
     public $fillable = [
-        'title', 'image', 'description'
+        'name', 'phone', 'email', 'message'
     ];
 }

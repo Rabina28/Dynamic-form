@@ -21,7 +21,7 @@
                                 <thead>
                                 <tr>
                                     <th>S.N</th>
-                                    <th>Title</th>>
+                                    <th>Title</th>
                                     <th>Description</th>
                                     <th>Image</th>
                                     <th style="width:200px;">Action</th>

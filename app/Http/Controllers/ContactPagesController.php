@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Contact;
+//use App\Models\Contact;
+use App\Models\Index;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class ContactPagesController extends Controller
      */
     public function index()
     {
-        //return view('crud.index',compact('students'));
-        $contacts = Contact::paginate(10);
-        return view('pages.contacts.index',compact('contacts'));
+        $indices = Index::all();
+        return view('pages.contacts.index')->with('indices',$indices);
+        //$contacts = Contact::paginate(10);
+        //return view('pages.contacts.index',compact('contacts'));
     }
 
     /**
@@ -26,7 +28,7 @@ class ContactPagesController extends Controller
      */
     public function create()
     {
-        return view('pages.contacts.create');
+       // return view('pages.contacts.create');
     }
 
     /**
@@ -43,12 +45,12 @@ class ContactPagesController extends Controller
             'email'=>'required',
             'message'=>'required',
         ]);
-        $contacts = new Contact();
-        $contacts->name=$request->name;
-        $contacts->phone=$request->phone;
-        $contacts->email=$request->email;
-        $contacts->message=$request->message;
-        $contacts->save();
+        $indices = new Index();
+        $indices->name=$request->name;
+        $indices->phone=$request->phone;
+        $indices->email=$request->email;
+        $indices->message=$request->message;
+        $indices->save();
         return redirect()->route('pages.contacts.index')->with('message','New Student Created Successfull !');
     }
 
@@ -60,8 +62,8 @@ class ContactPagesController extends Controller
      */
     public function show($id)
     {
-        $contacts = Contact::find($id);
-        return view('pages.contacts.read',compact('contacts'));
+        $indices = Index::find($id);
+        return view('pages.contacts.read',compact('indices'));
     }
 
     /**
@@ -72,8 +74,8 @@ class ContactPagesController extends Controller
      */
     public function edit($id)
     {
-        $contact = Contact::find($id);
-        return view('pages.contacts.edit',compact('contact'));
+        $index = Index::find($id);
+        return view('pages.contacts.edit',compact('index'));
     }
 
     /**
@@ -91,12 +93,12 @@ class ContactPagesController extends Controller
             'email'=>'required',
             'message'=>'required',
         ]);
-        $contacts =Contact::find($id);
-        $contacts->name=$request->name;
-        $contacts->phone=$request->phone;
-        $contacts->email=$request->email;
-        $contacts->message=$request->message;
-        $contacts->save();
+        $indices =Index::find($id);
+        $indices->name=$request->name;
+        $indices->phone=$request->phone;
+        $indices->email=$request->email;
+        $indices->message=$request->message;
+        $indices->save();
         return redirect()->route('pages.contacts.index')->with('message','Student Updated Successfull !');
     }
 
@@ -108,7 +110,7 @@ class ContactPagesController extends Controller
      */
     public function destroy($id)
     {
-        $contacts = Contact::find($id)->delete();
+        $indices = Index::find($id)->delete();
         return back()->with('message','Student Deleted Successfull !');
     }
 }

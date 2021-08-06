@@ -43,7 +43,7 @@
                         <div class="col-md-10">
                             <div class="form-group">
                                 <label for="address">Message</label>
-                                <textarea type="text" class="form-control" placeholder="Messsage" name="message" id="message" value="{{old('message')}}" style="height: 10rem" required autocomplete="message" autofocus></textarea>
+                                <textarea type="text" class="form-control" placeholder="Messsage" name="message" id="message"  style="height: 10rem" required autocomplete="message" autofocus>{{old('message')}}</textarea>
                             </div>
                         </div>
                     </div>
